@@ -1,0 +1,191 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+// import { YouTube } from 'astro-embed';
+
+const metadata = {
+  title: 'Оклейка / Бронирование полиуретановой (антигравийной) пленкой автомобиля',
+};
+
+const mainPageImage = '~/assets/images/mainPageImage.jpg';
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    image={{
+      src: mainPageImage,
+      alt: 'Click-through Landing Page Hero Image',
+    }}
+    tagline="Гарантия качества и долговечности"
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Начать чат',
+        href: 'https://t.me/Luxarywraps',
+        icon: 'tabler:brand-telegram',
+      },
+      { text: 'Узнать цену', href: '#features' },
+    ]}
+  >
+    <Fragment slot="title">
+      Оклейка полиуретановой (антигравийной) пленкой.<span class="hidden sm:inline"></span><span
+        class="text-accent dark:text-white highlight"></span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Профессиональная оклейка <span class="font-semibold">полиуретановой</span> (антигравийной) пленкой. Надежная защита
+      кузова от царапин, сколов и других повреждений.
+    </Fragment>
+  </Hero>
+
+  <Features2
+    title="Полиуретановые антигравийные пленки для вашего авто"
+    subtitle="Надежная защита кузова от царапин, сколов и других повреждений. Профессиональная оклейка полиуретановой пленкой."
+    items={[
+      {
+        title: 'Прочность и долговечность',
+        description:
+          'Долгосрочные гарантии, проверенная долговечность и защита в суровых условиях создают уверенность в том, что инвестиции в пленку оправданы.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Высокая репутация',
+        description:
+          'Наличие профессиональных рекомендаций дают потенциальным клиентам уверенность в качестве продукта и услуги.',
+        icon: 'tabler:yin-yang',
+      },
+      {
+        title: 'Прозрачность и выгода',
+        description:
+          'Четкая информация о стоимости и потенциальная экономия средств делают предложение более привлекательным для покупателей.',
+        icon: 'tabler:search',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Часто задаваемые вопросы"
+    items={[
+      {
+        title: 'Сколько времени занимает оклейка автомобиля пленкой?',
+        description:
+          'Процесс оклейки занимает от 1 до 3 дней, в зависимости от модели автомобиля и выбранного уровня защиты (полная или частичная оклейка).',
+      },
+      {
+        title: 'Каков срок службы полиуретановой пленки?',
+        description:
+          'При правильном уходе полиуретановая пленка служит от 5 до 10 лет, сохраняя свою защитную функцию и первоначальный внешний вид.',
+      },
+      {
+        title: 'Можно ли удалить пленку без повреждения краски?',
+        description:
+          'Да, пленка легко снимается, не повреждая лакокрасочное покрытие автомобиля. Это обеспечивает сохранение заводского состояния кузова.',
+      },
+      {
+        title: 'Требуется ли особый уход за пленкой?',
+        description:
+          'Для ухода за пленкой достаточно регулярной мойки автомобиля. Рекомендуется избегать агрессивных моющих средств и использования жестких щеток, чтобы продлить срок службы покрытия.',
+      },
+      {
+        title: 'Какие части автомобиля нуждаются в защите больше всего',
+        description:
+          'Наибольшей защиты требуют такие элементы, как капот, бампер, передние крылья и зеркала, так как они чаще всего подвержены повреждениям от камней, гравия и других дорожных факторов.',
+      },
+      {
+        title: 'Какие гарантии предоставляются на пленку и оклейку?',
+        description:
+          'Мы предоставляем гарантию от 5 до 10 лет на пленку и работу по ее нанесению. Точный срок зависит от выбранного бренда пленки и условий эксплуатации автомобиля.',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Свяжитесь с нами"
+    subtitle="Мы готовы помочь и ответить на любые ваши вопросы."
+    columns={4}
+    items={[
+      {
+        title: 'Телефон',
+        icon: 'tabler:phone',
+        callToAction: {
+          target: '_blank',
+          text: 'Позвоните нам',
+          href: 'tel:+7 (922) 8077855',
+          variant: 'link',
+        },
+      },
+      {
+        title: 'Электронная почта',
+        icon: 'tabler:mail',
+        callToAction: {
+          target: '_blank',
+          text: 'Напишите нам',
+          href: '/',
+          variant: 'link',
+        },
+      },
+      {
+        title: 'Чат с отделом продаж',
+        icon: 'tabler:message-circle',
+        callToAction: {
+          target: '_blank',
+          text: 'Начать чат',
+          href: 'https://t.me/Luxarywraps',
+          variant: 'link',
+        },
+      },
+      {
+        title: 'Чат с поддержкой',
+        icon: 'tabler:message-circle',
+        callToAction: {
+          target: '_blank',
+          text: 'Начать чат',
+          href: 'https://t.me/Luxarywraps',
+          variant: 'link',
+        },
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Оставить заявку',
+        icon: 'tabler:mail-fast',
+      },
+    ]}
+  >
+    <Fragment slot="title">Защитите авто прямо сейчас</Fragment>
+
+    <Fragment slot="subtitle">
+      Заполните форму, указав ваш номер телефона или email, и мы свяжемся с вами для консультации по оклейке
+      антигравийной пленкой.
+    </Fragment>
+  </CallToAction>
+</Layout>
