@@ -47,6 +47,6 @@ export const footerData = {
     { ariaLabel: 'Mail', icon: 'tabler:brand-vk', href: getAsset('/rss.xml') },
   ],
   footNote: `
-    <a class="text-blue-600 underline dark:text-muted" href="https://LuxorWraps.moscow/"> LuxorWraps</a> 	&reg; Все права защищены.
+    <a class="text-blue-600 underline dark:text-muted" href="https://autobot.moscow/"> autobot</a> 	&reg; Все права защищены.
   `,
 };

@@ -7,17 +7,28 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<div id="modal" class="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-40 flex items-center justify-center hidden">
-  <div class="relative bg-white dark:bg-gray-800 w-full max-w-md m-auto flex-col flex rounded-lg shadow-lg">
+<div
+  id="modal"
+  class="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-40 flex items-center justify-center hidden"
+>
+  <div
+    class="relative bg-white dark:bg-gray-800 w-full max-w-md m-auto flex-col flex rounded-lg shadow-lg"
+  >
     <div class="p-8">
-      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-5">{title}</h3>
+      <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-5">
+        {title}
+      </h3>
       <p class="text-gray-600 dark:text-gray-300 mb-6">
         {description}
       </p>
 
       <form id="modalForm" class="space-y-4">
         <div>
-          <label for="username" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Ваше имя</label>
+          <label
+            for="username"
+            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            >Ваше имя</label
+          >
           <input
             type="text"
             id="username"
@@ -27,7 +38,9 @@ const { title, description } = Astro.props;
           />
         </div>
         <div>
-          <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+          <label
+            for="email"
+            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
             >Как с Вами связаться (звонок, email, telegram)
           </label>
           <input
@@ -60,8 +73,18 @@ const { title, description } = Astro.props;
       id="closeIcon"
       class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
     >
-      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
   </div>
@@ -69,43 +92,47 @@ const { title, description } = Astro.props;
 
 <script>
   function setupModal() {
-    const modal = document.getElementById('modal');
-    const closeButton = document.getElementById('closeModal');
-    const closeIcon = document.getElementById('closeIcon');
-    const form = document.getElementById('modalForm');
-    const formMessage = document.getElementById('formMessage');
+    const modal = document.getElementById("modal");
+    const closeButton = document.getElementById("closeModal");
+    const closeIcon = document.getElementById("closeIcon");
+    const form = document.getElementById("modalForm");
+    const formMessage = document.getElementById("formMessage");
 
     function closeModal() {
       if (modal) {
-        modal.classList.add('hidden');
+        modal.classList.add("hidden");
       }
     }
 
     function showMessage(message, isError) {
       if (formMessage) {
         formMessage.textContent = message;
-        formMessage.classList.remove('hidden', 'text-green-500', 'text-red-500');
-        formMessage.classList.add(isError ? 'text-red-500' : 'text-green-500');
+        formMessage.classList.remove(
+          "hidden",
+          "text-green-500",
+          "text-red-500"
+        );
+        formMessage.classList.add(isError ? "text-red-500" : "text-green-500");
       }
     }
 
     if (modal) {
-      modal.addEventListener('click', (event) => {
+      modal.addEventListener("click", (event) => {
         if (event.target === modal) {
           closeModal();
         }
       });
 
       if (closeButton) {
-        closeButton.addEventListener('click', closeModal);
+        closeButton.addEventListener("click", closeModal);
       }
 
       if (closeIcon) {
-        closeIcon.addEventListener('click', closeModal);
+        closeIcon.addEventListener("click", closeModal);
       }
 
       if (form) {
-        form.addEventListener('submit', handleSubmit);
+        form.addEventListener("submit", handleSubmit);
       }
     }
 
@@ -118,31 +145,31 @@ const { title, description } = Astro.props;
 
       try {
         const response = await fetch(url, {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            chat_id: '-1002345768014',
-            text: `Новое сообщение с сайта luxorwraps.moscow:\nUsername: ${data.username}\nEmail: ${data.email}`,
+            chat_id: "-1002345768014",
+            text: `Новое сообщение с сайта autobot.moscow:\nUsername: ${data.username}\nEmail: ${data.email}`,
           }),
         });
 
         if (response.ok) {
-          showMessage('Form submitted successfully', false);
+          showMessage("Form submitted successfully", false);
           setTimeout(() => {
             closeModal();
           }, 2250);
         } else {
-          showMessage('Form submission failed', true);
+          showMessage("Form submission failed", true);
         }
       } catch (error) {
-        console.error('Error submitting form:', error);
-        showMessage('Error submitting form', true);
+        console.error("Error submitting form:", error);
+        showMessage("Error submitting form", true);
       }
     }
   }
 
   // Run setup when the component is mounted
-  document.addEventListener('astro:page-load', setupModal);
+  document.addEventListener("astro:page-load", setupModal);
 </script>
