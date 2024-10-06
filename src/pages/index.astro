@@ -1,20 +1,20 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
+import Layout from "~/layouts/PageLayout.astro";
 
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Hero from "~/components/widgets/Hero.astro";
+import CallToAction from "~/components/widgets/CallToAction.astro";
 
-import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
+import Features2 from "~/components/widgets/Features2.astro";
+import Features3 from "~/components/widgets/Features3.astro";
+import FAQs from "~/components/widgets/FAQs.astro";
 
 // import { YouTube } from 'astro-embed';
 
 const metadata = {
-  title: 'Автобот. Продажа автомобилей в Москве',
+  title: "Автобот. Продажа автомобилей в Москве",
 };
 
-const mainPageImage = '~/assets/images/mainPageImage.jpg';
+const mainPageImage = "~/assets/images/mainPageImage.jpg";
 ---
 
 <Layout metadata={metadata}>
@@ -23,52 +23,52 @@ const mainPageImage = '~/assets/images/mainPageImage.jpg';
   <Hero
     image={{
       src: mainPageImage,
-      alt: 'Click-through Landing Page Hero Image',
+      alt: "Click-through Landing Page Hero Image",
     }}
-    tagline="Доставка автомобилей из Китая"
+    tagline="Автомобили под заказ"
     actions={[
       {
-        variant: 'primary',
-        target: '_blank',
-        text: 'Начать чат',
-        href: 'https://t.me/Luxarywraps',
-        icon: 'tabler:brand-telegram',
+        variant: "primary",
+        target: "_blank",
+        text: "Свяжитесь с нами",
+        href: "https://t.me/autobot_moscow",
+        icon: "tabler:brand-telegram",
       },
-      { text: 'Узнать цену', href: '#features' },
+      { text: "Узнать стоимость", href: "https://t.me/autobot_moscow" },
     ]}
   >
     <Fragment slot="title">
-      Оклейка полиуретановой (антигравийной) пленкой.<span class="hidden sm:inline"></span><span
-        class="text-accent dark:text-white highlight"></span>
+      Доставка автомобилей из Китая и других стран<span class="hidden sm:inline"
+      ></span><span class="text-accent dark:text-white highlight"></span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Профессиональная оклейка <span class="font-semibold">полиуретановой</span> (антигравийной) пленкой. Надежная защита
-      кузова от царапин, сколов и других повреждений.
+      Мы поможем вам <span class="font-semibold">подобрать и доставить</span>
+      автомобиль вашей мечты из любой точки мира. Надежно, быстро и по выгодной цене.
     </Fragment>
   </Hero>
 
   <Features2
-    title="Полиуретановые антигравийные пленки для вашего авто"
-    subtitle="Надежная защита кузова от царапин, сколов и других повреждений. Профессиональная оклейка полиуретановой пленкой."
+    title="Ваш идеальный автомобиль – без границ"
+    subtitle="Вы выбираете – мы доставляем, обеспечивая полное сопровождение на каждом этапе."
     items={[
       {
-        title: 'Прочность и долговечность',
+        title: "Гарантия надежности",
         description:
-          'Долгосрочные гарантии, проверенная долговечность и защита в суровых условиях создают уверенность в том, что инвестиции в пленку оправданы.',
-        icon: 'tabler:shield-check',
+          "Мы работаем только с официальными партнерами, гарантируя безопасность сделки и качество каждого автомобиля.",
+        icon: "tabler:shield-check",
       },
       {
-        title: 'Высокая репутация',
+        title: "Поддержка на всех этапах",
         description:
-          'Наличие профессиональных рекомендаций дают потенциальным клиентам уверенность в качестве продукта и услуги.',
-        icon: 'tabler:yin-yang',
+          "От выбора автомобиля до его доставки и оформления – мы сопровождаем вас на каждом шаге, чтобы сделать процесс максимально простым.",
+        icon: "tabler:yin-yang",
       },
       {
-        title: 'Прозрачность и выгода',
+        title: "Прозрачные цены",
         description:
-          'Четкая информация о стоимости и потенциальная экономия средств делают предложение более привлекательным для покупателей.',
-        icon: 'tabler:search',
+          "Полная стоимость автомобиля известна заранее – без скрытых платежей или комиссий. Вы платите только за результат.",
+        icon: "tabler:search",
       },
     ]}
   >
@@ -83,34 +83,34 @@ const mainPageImage = '~/assets/images/mainPageImage.jpg';
     title="Часто задаваемые вопросы"
     items={[
       {
-        title: 'Сколько времени занимает оклейка автомобиля пленкой?',
+        title: "Как долго длится доставка автомобиля?",
         description:
-          'Процесс оклейки занимает от 1 до 3 дней, в зависимости от модели автомобиля и выбранного уровня защиты (полная или частичная оклейка).',
+          "Срок доставки зависит от страны отправления, в среднем занимает от 4 до 8 недель. Если выбранной комплектации нет в наличии.",
       },
       {
-        title: 'Каков срок службы полиуретановой пленки?',
+        title: "Могу ли я заказать автомобиль любой марки?",
         description:
-          'При правильном уходе полиуретановая пленка служит от 5 до 10 лет, сохраняя свою защитную функцию и первоначальный внешний вид.',
+          "Да, мы доставляем автомобили всех марок и моделей, независимо от страны производителя.",
       },
       {
-        title: 'Можно ли удалить пленку без повреждения краски?',
+        title: "Какие гарантии вы предоставляете?",
         description:
-          'Да, пленка легко снимается, не повреждая лакокрасочное покрытие автомобиля. Это обеспечивает сохранение заводского состояния кузова.',
+          "Мы гарантируем качество автомобиля, его соответствие заказу и полную юридическую чистоту.",
       },
       {
-        title: 'Требуется ли особый уход за пленкой?',
+        title: "Какие дополнительные расходы могут возникнуть?",
         description:
-          'Для ухода за пленкой достаточно регулярной мойки автомобиля. Рекомендуется избегать агрессивных моющих средств и использования жестких щеток, чтобы продлить срок службы покрытия.',
+          "Все расходы обсуждаются заранее – никаких скрытых платежей. Возможны только обязательные пошлины и налоги.",
       },
       {
-        title: 'Какие части автомобиля нуждаются в защите больше всего',
+        title: "Как происходит оплата?",
         description:
-          'Наибольшей защиты требуют такие элементы, как капот, бампер, передние крылья и зеркала, так как они чаще всего подвержены повреждениям от камней, гравия и других дорожных факторов.',
+          "Оплата осуществляется в несколько этапов: предоплата за заказ автомобиля и финальная оплата после его доставки.",
       },
       {
-        title: 'Какие гарантии предоставляются на пленку и оклейку?',
+        title: "Вы помогаете с оформлением документов?",
         description:
-          'Мы предоставляем гарантию от 5 до 10 лет на пленку и работу по ее нанесению. Точный срок зависит от выбранного бренда пленки и условий эксплуатации автомобиля.',
+          "Да, мы берем на себя все вопросы по оформлению документов и регистраций для вашего удобства.",
       },
     ]}
   >
@@ -127,43 +127,43 @@ const mainPageImage = '~/assets/images/mainPageImage.jpg';
     columns={4}
     items={[
       {
-        title: 'Телефон',
-        icon: 'tabler:phone',
+        title: "Телефон",
+        icon: "tabler:phone",
         callToAction: {
-          target: '_blank',
-          text: 'Позвоните нам',
-          href: 'tel:+7 (922) 8077855',
-          variant: 'link',
+          target: "_blank",
+          text: "Позвоните нам",
+          href: "tel:+7 (994) 4445445",
+          variant: "link",
         },
       },
       {
-        title: 'Электронная почта',
-        icon: 'tabler:mail',
+        title: "Электронная почта",
+        icon: "tabler:mail",
         callToAction: {
-          target: '_blank',
-          text: 'Напишите нам',
-          href: '/',
-          variant: 'link',
+          target: "_blank",
+          text: "Напишите нам",
+          href: "mailto:sale@autobot.moscow",
+          variant: "link",
         },
       },
       {
-        title: 'Чат с отделом продаж',
-        icon: 'tabler:message-circle',
+        title: "Чат с отделом продаж",
+        icon: "tabler:message-circle",
         callToAction: {
-          target: '_blank',
-          text: 'Начать чат',
-          href: 'https://t.me/Luxarywraps',
-          variant: 'link',
+          target: "_blank",
+          text: "Начать чат",
+          href: "https://t.me/autobot_moscow",
+          variant: "link",
         },
       },
       {
-        title: 'Чат с поддержкой',
-        icon: 'tabler:message-circle',
+        title: "Чат с поддержкой",
+        icon: "tabler:message-circle",
         callToAction: {
-          target: '_blank',
-          text: 'Начать чат',
-          href: 'https://t.me/Luxarywraps',
-          variant: 'link',
+          target: "_blank",
+          text: "Начать чат",
+          href: "https://t.me/autobot_moscow",
+          variant: "link",
         },
       },
     ]}
@@ -174,18 +174,18 @@ const mainPageImage = '~/assets/images/mainPageImage.jpg';
   <CallToAction
     actions={[
       {
-        variant: 'primary',
-        target: '_blank',
-        text: 'Оставить заявку',
-        icon: 'tabler:mail-fast',
+        variant: "primary",
+        target: "_blank",
+        text: "Получить предложение",
+        icon: "tabler:mail-fast",
       },
     ]}
   >
-    <Fragment slot="title">Защитите авто прямо сейчас</Fragment>
+    <Fragment slot="title">Узнайте точную стоимость</Fragment>
 
     <Fragment slot="subtitle">
-      Заполните форму, указав ваш номер телефона или email, и мы свяжемся с вами для консультации по оклейке
-      антигравийной пленкой.
+      Оставьте заявку, и мы свяжемся с вами в течение 15 минут, чтобы обсудить
+      детали и предложить лучшие условия доставки автомобиля вашей мечты.
     </Fragment>
   </CallToAction>
 </Layout>

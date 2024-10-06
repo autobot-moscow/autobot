@@ -1,31 +1,31 @@
 site:
-  name: autobot
-  site: 'https://autobot.moscow'
-  base: '/'
+  name: Autobot
+  site: "https://autobot.moscow"
+  base: "/"
   trailingSlash: false
 
   googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
-  metrikaId: 98262784
+  metrikaId: 9826278
 
 # Default SEO metadata
 metadata:
   title:
     default: autobot
-    template: '%s — autobot.moscow'
-  description: '🚗 Профессиональная оклейка и бронирование автомобилей полиуретановой (антигравийной) пленкой в Москве. autobot.moscow предлагает надежную защиту кузова от царапин, сколов и внешних воздействий с гарантией качества до 10 лет.'
+    template: "%s — Autobot.moscow"
+  description: "🚗 Доставка автомобилей из Китая и других стран"
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: autobot
+    site_name: Autobot
     images:
-      - url: '~/assets/images/default.jpg'
+      - url: "~/assets/images/default.jpg"
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@autobot'
-    site: '@autobot'
+    handle: "@autobot"
+    site: "@autobot"
     cardType: summary_large_image
 
 i18n:
@@ -39,25 +39,25 @@ apps:
 
     post:
       isEnabled: true
-      permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      permalink: "/%slug%" # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
       robots:
         index: true
 
     list:
       isEnabled: true
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      pathname: "blog" # Blog main path, you can change this to "articles" (/articles)
       robots:
         index: true
 
     category:
       isEnabled: true
-      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
+      pathname: "category" # Category main path /category/some-category, you can change this to "group" (/group/some-category)
       robots:
         index: true
 
     tag:
       isEnabled: true
-      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
+      pathname: "tag" # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
       robots:
         index: false
 
@@ -70,4 +70,4 @@ analytics:
       id: null # or "G-XXXXXXXXXX"
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: "system" # Values: "system" | "light" | "dark" | "light:only" | "dark:only"

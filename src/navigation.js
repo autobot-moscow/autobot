@@ -6,10 +6,10 @@ export const headerData = {
       text: 'Главная',
       href: getPermalink('/'),
     },
-    {
-      text: 'Цены',
-      href: getPermalink('/pricing'),
-    },
+    // {
+    //   text: 'Цены',
+    //   href: getPermalink('/pricing'),
+    // },
     {
       text: 'Блог',
       href: getPermalink('/blog'),
@@ -31,7 +31,7 @@ export const footerData = {
     {
       title: 'Блог',
       links: [
-        { text: 'Цены', href: '/pricing' },
+        // { text: 'Цены', href: '/pricing' },
         { text: 'Статьи', href: '/blog' },
       ],
     },
@@ -41,12 +41,12 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'Telegramm', icon: 'tabler:brand-telegram', href: '#' },
-    { ariaLabel: 'Youtube', icon: 'tabler:brand-youtube', href: '#' },
-    { ariaLabel: 'Yandex', icon: 'tabler:brand-yandex', href: '#' },
-    { ariaLabel: 'Mail', icon: 'tabler:brand-vk', href: getAsset('/rss.xml') },
+    { ariaLabel: 'Telegramm', icon: 'tabler:brand-telegram', href: 'https://t.me/autobot_moscow' },
+    { ariaLabel: 'Youtube', icon: 'tabler:brand-youtube', href: 'https://t.me/autobot_moscow' },
+    { ariaLabel: 'Yandex', icon: 'tabler:brand-yandex', href: 'https://t.me/autobot_moscow' },
+    { ariaLabel: 'Mail', icon: 'tabler:brand-vk', href: 'https://t.me/autobot_moscow' },
   ],
   footNote: `
-    <a class="text-blue-600 underline dark:text-muted" href="https://autobot.moscow/"> autobot</a> 	&reg; Все права защищены.
+    <a class="text-blue-600 underline dark:text-muted" href="https://autobot.moscow/"> «Автобот» Доставка авто</a> 	&reg; Все права защищены.
   `,
 };
