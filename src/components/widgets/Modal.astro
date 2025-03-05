@@ -51,8 +51,30 @@ const { title, description } = Astro.props;
             required
           />
         </div>
-        <div id="formMessage" class="text-sm font-medium hidden"></div>
-        <div class="flex justify-end space-x-3">
+        <div id="formStatus" class="text-sm font-medium text-center hidden">
+        </div>
+        <div class="flex justify-end space-x-3 items-center">
+          <div id="spinner" class="hidden">
+            <svg
+              class="animate-spin h-5 w-5 text-blue-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+          </div>
           <button
             type="button"
             id="closeModal"
@@ -62,6 +84,7 @@ const { title, description } = Astro.props;
           </button>
           <button
             type="submit"
+            id="submitButton"
             class="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-colors"
           >
             Отправить
@@ -95,8 +118,12 @@ const { title, description } = Astro.props;
     const modal = document.getElementById("modal");
     const closeButton = document.getElementById("closeModal");
     const closeIcon = document.getElementById("closeIcon");
-    const form = document.getElementById("modalForm");
-    const formMessage = document.getElementById("formMessage");
+    const form = document.getElementById("modalForm") as HTMLFormElement | null;
+    const formStatus = document.getElementById("formStatus");
+    const spinner = document.getElementById("spinner");
+    const submitButton = document.getElementById(
+      "submitButton"
+    ) as HTMLButtonElement | null;
 
     function closeModal() {
       if (modal) {
@@ -104,15 +131,40 @@ const { title, description } = Astro.props;
       }
     }
 
-    function showMessage(message, isError) {
-      if (formMessage) {
-        formMessage.textContent = message;
-        formMessage.classList.remove(
-          "hidden",
-          "text-green-500",
-          "text-red-500"
-        );
-        formMessage.classList.add(isError ? "text-red-500" : "text-green-500");
+    function showStatus(message: string, isError = false) {
+      if (formStatus) {
+        formStatus.textContent = message;
+        formStatus.classList.remove("hidden", "text-green-500", "text-red-500");
+        formStatus.classList.add(isError ? "text-red-500" : "text-green-500");
+      }
+    }
+
+    function setFormState(state: "idle" | "sending" | "sent") {
+      if (spinner && submitButton) {
+        switch (state) {
+          case "idle":
+            spinner.classList.add("hidden");
+            submitButton.disabled = false;
+            submitButton.textContent = "Отправить заявку";
+            showStatus("");
+            break;
+          case "sending":
+            spinner.classList.remove("hidden");
+            submitButton.disabled = true;
+            submitButton.textContent = "Отправка...";
+            showStatus(
+              "Форма отправляется. Пожалуйста, подождите несколько секунд."
+            );
+            break;
+          case "sent":
+            spinner.classList.add("hidden");
+            submitButton.disabled = true;
+            submitButton.textContent = "Отправлено";
+            showStatus(
+              "Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время."
+            );
+            break;
+        }
       }
     }
 
@@ -136,9 +188,11 @@ const { title, description } = Astro.props;
       }
     }
 
-    async function handleSubmit(event) {
+    async function handleSubmit(event: Event) {
       event.preventDefault();
-      const formData = new FormData(event.target);
+      setFormState("sending");
+
+      const formData = new FormData(event.target as HTMLFormElement);
       const data = Object.fromEntries(formData.entries());
 
       const url = `https://api.telegram.org/bot7020130723:AAE9ROdrdCVFTP8M3jpPcx4Qg_lMZjPTNj8/sendMessage`;
@@ -156,16 +210,20 @@ const { title, description } = Astro.props;
         });
 
         if (response.ok) {
-          showMessage("Form submitted successfully", false);
+          setFormState("sent");
           setTimeout(() => {
             closeModal();
-          }, 2250);
+            setFormState("idle");
+            if (form) form.reset();
+          }, 3250);
         } else {
-          showMessage("Form submission failed", true);
+          setFormState("idle");
+          showStatus("Ошибка отправки формы", true);
         }
       } catch (error) {
         console.error("Error submitting form:", error);
-        showMessage("Error submitting form", true);
+        setFormState("idle");
+        showStatus("Ошибка отправки формы", true);
       }
     }
   }
